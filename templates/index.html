@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block body %}
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide"> 
+                <!-- Slide image -->
+               <img src="{% static 'images/slider1.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title"><br/>TJStar</h1>
+                        <!-- /Text title -->
+                        <div class="button"><a href="#">See Details</a></div>
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+            <div class="slide">
+               <img src="{% static 'images/slider2.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Achieve<br/>Anything</h1>
+                       	<div class="button"><a href="speaker.html">See Details</a></div>
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+	  <div class="main">
+		<div class="content-top container">
+			<h2>Time Until Event</h2>
+			<p>The amount of time left until the TJStar event!</p>
+            <div id="countdown">
+                <ul>
+                  <li class="li"><span id="days"></span>days</li>
+                  <li class="li"><span id="hours"></span>Hours</li>
+                  <li class="li"><span id="minutes"></span>Minutes</li>
+                  <li class="li"><span id="seconds"></span>Seconds</li>
+                </ul>
+            </div>
+            <script type="application/javascript">
+                (function () {
+                  const second = 1000,
+                        minute = second * 60,
+                        hour = minute * 60,
+                        day = hour * 24;
+
+                  let birthday = "Sep 30, 2021 00:00:00",
+                      countDown = new Date(birthday).getTime(),
+                      x = setInterval(function() {
+
+                        let now = new Date().getTime(),
+                            distance = countDown - now;
+
+                        document.getElementById("days").innerText = Math.floor(distance / (day)),
+                          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                        //do something later when date is reached
+                        if (distance < 0) {
+                          let headline = document.getElementById("headline"),
+                              countdown = document.getElementById("countdown"),
+                              content = document.getElementById("content");
+
+                          headline.innerText = "It's TJ Star!";
+                          countdown.style.display = "none";
+                          content.style.display = "block";
+
+                          clearInterval(x);
+                        }
+                        //seconds
+                      }, 0)
+                }());
+            </script>
+            <div class="message">
+                <div id="content">
+                  <span class="emoji">🥳</span>
+                  <span class="emoji">🎉</span>
+            </div>
+        </div>
+		<h3>Eastern Standard Time</h3>
+		<script type="text/javascript" src="{% static 'js/jquery.flexisel.js' %}"></script>
+		</div>
+	</div>
+	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text" >
+			  <div class="col-md-7" style="background: rgba(0, 0, 0, .75); border-radius: 20px;">
+				<h3>Our everlasting<br>Goal</h3>
+				<p class="m_1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</p>
+				<p class="m_2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="features">
+		<div class="container">
+			<h3 class="m_3">Speakers</h3>
+			  <div class="row">
+
+                <div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="single.html">
+                    <img src="{% static 'images/pic1.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Speaker Name</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                      </div>
+                    </a> </div>
+                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
+                   <p class="m_5">claritatem insitam</p>
+				</div>
+                <div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="single.html">
+                    <img src="{% static 'images/pic2.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Speaker Name</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                      </div>
+                    </a> </div>
+                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
+                   <p class="m_5">claritatem insitam</p>
+				</div>
+				<div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="single.html">
+                    <img src="{% static 'images/pic3.jpg'%}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Speaker Name</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                      </div>
+                    </a> </div>
+                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
+                   <p class="m_5">claritatem insitam</p>
+				</div>
+				<div class="col-md-3 top_box1">
+					<div class="view view-ninth"><a href="single.html">
+                    <img src="{% static 'images/pic4.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Speaker Name</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                      </div>
+                     </a> </div>
+                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
+                   <p class="m_5">claritatem insitam</p>
+				</div>
+			</div>
+		 </div>
+	    </div>
+{% endblock %}
